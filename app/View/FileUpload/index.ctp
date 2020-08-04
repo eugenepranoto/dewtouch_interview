@@ -13,14 +13,13 @@
 		<h3>Import Form</h3>
 	</div>
 <?php
-echo $this->Form->create('FileUpload');
+echo $this->Form->create('FileUpload', ['enctype'=>'multipart/form-data', 'url' => array('controller' => 'FileUpload','action' =>'upload') ]);
 echo $this->Form->input('file', array('label' => 'File Upload', 'type' => 'file'));
 echo $this->Form->submit('Upload', array('class' => 'btn btn-primary'));
 echo $this->Form->end();
 ?>
-
+<?php echo $this->Session->flash();?>
 	<hr />
-
 	<div class="alert alert-success">
 		<h3>Data Imported</h3>
 	</div>
