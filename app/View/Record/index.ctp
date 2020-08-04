@@ -7,22 +7,17 @@
 				<th>NAME</th>	
 			</tr>
 		</thead>
-		<tbody>
-			<?php foreach($records as $record):?>
-			<tr>
-				<td><?php echo $record['Record']['id']?></td>
-				<td><?php echo $record['Record']['name']?></td>
-			</tr>	
-			<?php endforeach;?>
-		</tbody>
 	</table>
 </div>
 <?php $this->start('script_own')?>
 <script>
-$(document).ready(function(){
-	$("#table_records").dataTable({
+	$(document).ready(function() {
+		var config = {
+			"bServerSide": true,
+			"sAjaxSource": '<?php echo $link; ?>'
+		}; 
 
-	});
-})
+		$('#table_records').dataTable(config);
+	})
 </script>
 <?php $this->end()?>
